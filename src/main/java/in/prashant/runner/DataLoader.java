@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import in.prashant.entity.CitizenPlan;
 import in.prashant.repository.CitizenPlanRepository;
 
-//@Component
+@Component
 public class DataLoader implements ApplicationRunner{
 
 	@Autowired
@@ -22,6 +22,7 @@ public class DataLoader implements ApplicationRunner{
 	public void run(ApplicationArguments args) throws Exception {
 	//System.out.println("------------->>>>");
 		//Cash Plan Data
+		repository.deleteAll();;
 		CitizenPlan c1 = new CitizenPlan();
 		c1.setCitizenName("John");
 		c1.setGender("Male");

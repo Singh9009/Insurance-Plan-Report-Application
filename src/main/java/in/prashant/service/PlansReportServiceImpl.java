@@ -2,7 +2,9 @@ package in.prashant.service;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import in.prashant.entity.CitizenPlan;
@@ -17,20 +19,28 @@ public class PlansReportServiceImpl implements IPlanReportService{
 	
 	@Override
 	public List<String> getPlanNames() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.getPlanNames();
 	}
 
 	@Override
 	public List<String> getPlanStatus() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.getPlanStatus();
 	}
 
 	@Override
 	public List<CitizenPlan> search(SearchRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+		CitizenPlan entity = new CitizenPlan();
+		
+		if(request.getPlanName() !=null && !"".equals(request.getPlanName()))
+			entity.setPlanName(request.getPlanName());
+		
+		if(request.getPlanStatus() !=null && !"".equals(request.getPlanStatus()))
+			entity.setPlanStatus(request.getPlanStatus());
+		
+		if(request.getGender() !=null && !"".equals(request.getGender()))
+			entity.setGender(request.getGender());
+		
+		return repository.findAll(Example.of(entity));
 	}
 
 	@Override
