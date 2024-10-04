@@ -32,7 +32,7 @@
       </td>
       
       
-      <td>Plan Status: </td>
+      <td>&nbsp;&nbsp;&nbsp;Plan Status: </td>
       <td>
          <form:select path="planStatus">
              <form:option value="">--select--</form:option>
@@ -41,7 +41,7 @@
       </td>
       
       
-      <td>Gender: </td>
+      <td>&nbsp;&nbsp;&nbsp;Gender: </td>
       <td>
          <form:select path="gender">
              <form:option value="">--select--</form:option>
@@ -61,7 +61,7 @@
          <form:input path="startDate" type="date" data-date-formate="mm/dd/yyyy"/>
       </td>
    
-   <td>Plan End Date:</td>
+   <td>&nbsp;&nbsp;&nbsp;Plan End Date:</td>
       <td>
          <form:input path="endDate" type="date" data-date-formate="mm/dd/yyyy"/>
       </td>
@@ -69,8 +69,15 @@
   
   <tr><td></td></tr>
   <tr><td></td></tr>
+   <tr><td></td></tr> 
+  
   
   <tr>
+      <td>
+      &nbsp;&nbsp;&nbsp;<input type="reset" value="Reset" class="btn btn-secondary"/>
+     </td>
+     
+     
      <td>
       <input type="submit" value="Search" class="btn btn-primary"/>
      </td>

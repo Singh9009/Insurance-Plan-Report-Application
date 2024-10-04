@@ -1,5 +1,7 @@
 package in.prashant.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -39,6 +41,24 @@ public class PlansReportServiceImpl implements IPlanReportService{
 		
 		if(request.getGender() !=null && !"".equals(request.getGender()))
 			entity.setGender(request.getGender());
+		
+		if(request.getStartDate() != null && !"".equals(request.getStartDate()))
+		{
+			String startDate = request.getStartDate();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			//Convert string date to Localdate
+			LocalDate date = LocalDate.parse(startDate, formatter);
+			entity.setPlanStartDate(date);
+		}
+		
+		if(request.getEndDate() != null && !"".equals(request.getEndDate()))
+		{
+			String endDate = request.getEndDate();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			//Convert string date to Localdate
+			LocalDate date = LocalDate.parse(endDate, formatter);
+			entity.setPlanEndDate(date);
+		}
 		
 		return repository.findAll(Example.of(entity));
 	}
