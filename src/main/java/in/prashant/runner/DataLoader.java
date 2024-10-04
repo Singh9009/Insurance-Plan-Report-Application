@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import in.prashant.entity.CitizenPlan;
 import in.prashant.repository.CitizenPlanRepository;
 
-@Component
+//@Component
 public class DataLoader implements ApplicationRunner{
 
 	@Autowired
