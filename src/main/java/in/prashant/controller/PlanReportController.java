@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import in.prashant.entity.CitizenPlan;
 import in.prashant.request.SearchRequest;
 import in.prashant.service.IPlanReportService;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class PlanReportController {
@@ -41,5 +42,13 @@ public class PlanReportController {
 		model.addAttribute("citizenList",citizenList);
 		init(model);
 		return "index";
+	}
+	
+	@GetMapping("/excel")
+	public void exportExcel(HttpServletResponse response) throws Exception
+	{
+		response.setContentType("application/octet-stream");
+		response.addHeader("Content-Disposition", "attachment;filename=plans-data.xlxs");
+		service.exportExcel(response);
 	}
 }
