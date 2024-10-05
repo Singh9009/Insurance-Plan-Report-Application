@@ -4,6 +4,7 @@ import java.util.List;
 
 import in.prashant.entity.CitizenPlan;
 import in.prashant.request.SearchRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public interface IPlanReportService{
 
@@ -13,7 +14,7 @@ public interface IPlanReportService{
 	
 	public List<CitizenPlan> search(SearchRequest request);
 	
-	public boolean exportExcel();
+	public boolean exportExcel(HttpServletResponse response) throws Exception;
 	
 	public boolean exportPdf();
 	
